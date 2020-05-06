@@ -3,7 +3,6 @@ require 'diary'
 describe Diary do
   let(:diary_entry1) { double(title: "entry_1", body: 'blah blah', comments: ["Brill","Lame"], tags: ["Cows", "Pigs"]) }
   let(:diary_entry2) { double(title: "entry_2", body: 'blah blah', comments: ["Brill","Lame"], tags: ["Cows", "Pigs"]) }
-  let(:diary_entry3) { double(title: "entry_3", body: 'blah blah', comments: ["Brill","Lame"], tags: ["Cows", "Pigs"]) }
   subject(:diary) { Diary.new }
 
   describe '.entries' do
@@ -38,26 +37,3 @@ describe Diary do
     end
   end
 end
-
-# describe DiaryEntry do 
-
-#   describe '.title' do 
-
-#   end
-
-#   describe '.body' do 
-
-#   end
-
-#   describe 'edit' do 
-
-#   end
-
-#   describe '.comments' do 
-
-#   end
-
-#   describe '.tags' do 
-
-#   end
-# end
