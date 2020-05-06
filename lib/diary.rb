@@ -6,7 +6,8 @@ class Diary
 
   def initialize
     @entries = []
-    con = PG.connect :dbname => 'diary', :user => 'student'
+    ENV['ENVIRONMENT'] == 'test' ? db = 'diary_test' : db = 'test'
+    con = PG.connect :dbname => db, :user => 'student'
     response = con.exec "SELECT name, body FROM diary_entries"
     response.each { |entry|
       @entries << DiaryEntry.new(response["title"],response["body"])
