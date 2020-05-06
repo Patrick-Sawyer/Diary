@@ -1,9 +1,16 @@
+require 'pg'
+
 class Diary
 
   attr_reader :entries
 
-  def initialize(db_entries = [])
-    @entries = db_entries
+  def initialize
+    @entries = []
+    con = PG.connect :dbname => 'diary', :user => 'student'
+    response = con.exec "SELECT name, body FROM diary_entries"
+    response.each { |entry|
+      @entries << DiaryEntry.new(response["title"],response["body"])
+    }
   end
 
   def add(entry)

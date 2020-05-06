@@ -3,6 +3,11 @@ require 'sinatra'
 class DiaryApp < Sinatra::Base
 
   get '/' do 
-    index.erb
+   erb :index
+
+   
+
+
+   
   end
 end
